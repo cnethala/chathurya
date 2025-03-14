@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Projects</title>
+</head>
+<script>
+    // Custom project information
+    const projectInfo = {
+        "project 1": { "bgColor": "#FF6347", "taskLabel": "Task 1" },
+        "project 2": { "bgColor": "#32CD32", "taskLabel": "Task 2" },
+        "project 3": { "bgColor": "#1E90FF", "taskLabel": "Task 3" }
+    };
+
+    // Function to dynamically update background color and task display
+    function updateProjectDisplay(projectKey) {
+        const project = projectInfo[projectKey];
+        const contentDiv = document.getElementById("mainContent");
+        const contentFrame = document.getElementById("taskFrame");
+
+        contentDiv.style.backgroundColor = project.bgColor;
+        contentFrame.innerHTML = `<h2>${project.taskLabel}</h2>`;
+    }
+
+    // Apply styles dynamically
+    window.onload = function() {
+        const header = document.querySelector('header');
+        const nav = document.querySelector('nav');
+        const mainContent = document.getElementById('mainContent');
+        const buttons = document.querySelectorAll('button');
+
+        // Header styles
+        header.style.border = '5px solid black';
+        header.style.textAlign = 'center';
+
+        // Navigation styles
+        nav.style.textAlign = 'center';
+        nav.style.marginTop = '20px';
+
+        // Button styles
+        buttons.forEach(button => {
+            button.style.margin = '10px';
+            button.style.padding = '10px 20px';
+            button.style.borderRadius = '20px';
+        });
+
+        // Main content styles
+        mainContent.style.marginTop = '20px';
+        mainContent.style.width = '80%';
+        mainContent.style.height = '500px';
+        mainContent.style.border = '3px solid black';
+        mainContent.style.marginLeft = 'auto';
+        mainContent.style.marginRight = 'auto';
+        mainContent.style.textAlign = 'center';
+        mainContent.style.display = 'flex';
+        mainContent.style.alignItems = 'center';
+        mainContent.style.justifyContent = 'center';
+        mainContent.style.fontSize = '20px';
+        mainContent.style.padding = '150px';
+    }
+</script>
+<body>
+    <header>
+        <h1>Class Work</h1>
+    </header>
+
+    <nav>
+        <button onclick="updateProjectDisplay('project 1')">Project 1</button>
+        <button onclick="updateProjectDisplay('project 2')">Project 2</button>
+        <button onclick="updateProjectDisplay('project 3')">Project 3</button>
+    </nav>
+
+    <section id="mainContent">
+        <div id="taskFrame"></div>
+    </section>
+</body>
+</html>
